@@ -1,0 +1,16 @@
+.message {
+  width: fit-content;
+  max-width: 200px;
+  padding: 5px;
+  background-color: rgb(120, 226, 203);
+  border-radius: 5px;
+
+  &_user {
+    margin-left: auto;
+    background-color: rgb(233, 228, 160);
+  }
+
+  & + & {
+    margin-top: 10px;
+  }
+}

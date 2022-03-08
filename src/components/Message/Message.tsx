@@ -1,5 +1,13 @@
 import React from "react";
+import "./Message.scss";
 
-export default function Message() {
-  return <div>Hello</div>;
+interface DialogFrameProps {
+  text: string;
+  isUser: boolean;
+}
+
+export default function Message({ text, isUser }: DialogFrameProps) {
+  return (
+    <div className={`message ${isUser ? "message_user" : ""}`}>{text}</div>
+  );
 }

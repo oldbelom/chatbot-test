@@ -1,6 +1,15 @@
 import React from "react";
 import "./Button.scss";
 
-export default function Button() {
-  return <button className="button">go</button>;
+interface ButtonProps {
+  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  text: string;
+}
+
+export default function Button({ handleClick, text }: ButtonProps) {
+  return (
+    <button onClick={handleClick} className="button">
+      {text}
+    </button>
+  );
 }
