@@ -1,0 +1,16 @@
+@import "../../style/variables.scss";
+
+.input {
+  flex-grow: 1;
+  padding: 8px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  color: $text-color;
+
+  &:focus-visible {
+    outline: 2px solid $main-color;
+  }
+}

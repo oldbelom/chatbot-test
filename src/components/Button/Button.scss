@@ -1,0 +1,26 @@
+@import "../../style/variables.scss";
+
+.button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: $main-color;
+  cursor: pointer;
+  transition: all linear 0.15s;
+
+  &:hover {
+    box-shadow: 0px 0px 4px 4px rgb(69 213 182 / 60%);
+  }
+
+  &:active {
+    background-color: darken($color: $main-color, $amount: 8);
+    box-shadow: none;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: #fff;
+  }
+}

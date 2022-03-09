@@ -4,7 +4,7 @@ import "./Button.scss";
 interface ButtonProps {
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type: "button" | "submit" | "reset";
-  ico: any;
+  ico: React.ReactElement;
 }
 
 export default function Button({ type, handleClick, ico }: ButtonProps) {

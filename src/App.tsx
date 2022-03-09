@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Input, DialogFrame } from "./components";
 import { getData, updateLocalMessages } from "./utils";
 import { InitOptions, ReadyOptions, RequestOptions, IMessage } from "./types";
+import "./App.scss";
 import RepeatIco from "./assets/repeat.svg";
 import SendIco from "./assets/send.svg";
 
@@ -98,15 +99,14 @@ export default function App() {
 
   return (
     <div className="app">
+      <header className="app__header">Chatbot</header>
       <DialogFrame messages={messages} />
       <form onSubmit={sendMessage} className="app__controls">
         <Button type="button" handleClick={refreshChat} ico={<RepeatIco />} />
-        <input
-          autoFocus
-          required
-          onChange={handleChange}
+        <Input
+          handleChange={handleChange}
           value={inputValue}
-          placeholder="Введите сообщение..."
+          placeholder="Введите сообщение"
         />
         <Button type="submit" ico={<SendIco />} />
       </form>

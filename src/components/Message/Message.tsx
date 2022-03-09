@@ -8,6 +8,8 @@ interface DialogFrameProps {
 
 export default function Message({ text, isUser }: DialogFrameProps) {
   return (
-    <div className={`message ${isUser ? "message_user" : ""}`}>{text}</div>
+    <div className={`message ${isUser ? "message--user" : "message--bot"}`}>
+      {text}
+    </div>
   );
 }
