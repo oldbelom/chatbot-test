@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Input, DialogFrame } from "./components";
 import { getData, updateLocalMessages } from "./utils";
 import { InitOptions, ReadyOptions, RequestOptions, IMessage } from "./types";
+import RepeatIco from "./assets/repeat.svg";
+import SendIco from "./assets/send.svg";
 
 const URL = "https://biz.nanosemantics.ru/api/2.1/json/Chat";
 const UUID = "772c9859-4dd3-4a0d-b87d-d76b9f43cfa4";
@@ -47,7 +49,9 @@ export default function App() {
     }
   };
 
-  const sendMessage = async () => {
+  const sendMessage = async (event: React.FormEvent) => {
+    event.preventDefault();
+
     const options: RequestOptions = {
       cuid: localStorage.getItem("cuid") as string,
       text: inputValue,
@@ -84,7 +88,7 @@ export default function App() {
     initChat().then(() => readyChat());
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
@@ -95,18 +99,17 @@ export default function App() {
   return (
     <div className="app">
       <DialogFrame messages={messages} />
-      <div className="app__controls">
-        <textarea
+      <form onSubmit={sendMessage} className="app__controls">
+        <Button type="button" handleClick={refreshChat} ico={<RepeatIco />} />
+        <input
           autoFocus
-          cols={30}
-          rows={3}
+          required
           onChange={handleChange}
           value={inputValue}
           placeholder="Введите сообщение..."
-        ></textarea>
-        <Button handleClick={sendMessage} text="Send" />
-        <Button handleClick={refreshChat} text="Refresh" />
-      </div>
+        />
+        <Button type="submit" ico={<SendIco />} />
+      </form>
     </div>
   );
 }

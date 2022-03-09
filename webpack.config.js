@@ -40,6 +40,10 @@ module.exports = {
         test: /\.(sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
+      },
     ],
   },
   devServer: {

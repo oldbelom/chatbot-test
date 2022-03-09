@@ -2,14 +2,15 @@ import React from "react";
 import "./Button.scss";
 
 interface ButtonProps {
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  text: string;
+  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  type: "button" | "submit" | "reset";
+  ico: any;
 }
 
-export default function Button({ handleClick, text }: ButtonProps) {
+export default function Button({ type, handleClick, ico }: ButtonProps) {
   return (
-    <button onClick={handleClick} className="button">
-      {text}
+    <button type={type} onClick={handleClick} className="button">
+      {ico}
     </button>
   );
 }
